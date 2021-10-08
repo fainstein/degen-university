@@ -1,0 +1,82 @@
+/* GENERAL STYLES */
+.container-fluid {
+  padding: 3% 12% 7%;
+}
+
+header {
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header-logo-container {
+  margin: auto 0;
+}
+
+
+h1 {
+  color: white;
+  font-size: 4vw;
+  text-align: center;
+  /* font-family: 'Lato', sans-serif; */
+}
+
+.header-logo-container p {
+  color: rgba(255,255,255,.55);
+  font-size: 1.4vw;
+}
+
+.slogan-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 6vw;
+}
+
+.carousel {
+  padding: 0 15%;
+}
+
+.card {
+height: 500px;
+border-radius: .5rem;
+align-items: center;
+}
+
+.carousel-item img {
+  object-fit: cover ;
+  max-height: 300px;
+}
+
+
+/* FOOTER */
+footer p {
+  text-align: center;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+
+
+
+/* MOBILE AND TABLET */
+@media (max-width: 991px) {
+  .container-fluid {
+    padding: 3% 3% 7%;
+  }
+  h1 {
+    color: white;
+    font-size: 10vw;
+  }
+  .header-logo-container p {
+    font-size: 3vw;
+    text-align: center;
+  }
+
+.slogan-container {
+  padding: 0 9vw;
+}
+
+  .carousel-container {
+    margin-top: 3rem;
+  }
+}
