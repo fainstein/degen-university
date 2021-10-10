@@ -1,31 +1,45 @@
 /* GENERAL STYLES */
 .container-fluid {
-  padding: 3% 12% 7%;
+  padding: 3% 12%;
 }
 
-header {
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  justify-content: space-between;
+}
+
+.flex-wrapper-main {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* HEADER */
+
+.header-row {
+  flex-direction: row-reverse;
+}
+
 .header-logo-container {
   margin: auto 0;
 }
 
-
 h1 {
   color: white;
   font-size: 4vw;
-  text-align: center;
   /* font-family: 'Lato', sans-serif; */
 }
 
 .header-logo-container p {
-  color: rgba(255,255,255,.55);
+  color: rgba(255, 255, 255, .55);
   font-size: 1.4vw;
 }
 
-.slogan-container{
+.slogan-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -37,16 +51,74 @@ h1 {
 }
 
 .card {
-height: 500px;
-border-radius: .5rem;
-align-items: center;
+  height: 375px;
+  border-radius: .5rem;
+  align-items: center;
 }
 
 .carousel-item img {
-  object-fit: cover ;
-  max-height: 300px;
+  object-fit: cover;
+  height: 175px;
 }
 
+/* CLASSES PAGE */
+.classes-table .table-row-flex-wrapper {
+  display: flex;
+  padding: 1% 0;
+}
+
+.classes-title {
+  margin-bottom: 54px;
+}
+
+.classes-filters {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: flex-end;
+}
+
+.classes-filters input {
+    width: 200px;
+    /* margin-left: auto; */
+}
+
+.classes-filters select {
+  width: 150px;
+  margin-left: 20px;
+}
+
+a.table-row-link:link, a.table-row-link:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.classes-table .profile-card {
+  min-width: 120px;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.classes-table .username {
+  margin-bottom: 0;
+}
+
+.user-img {
+  width: 90px;
+}
+
+/* ABOUT US PAGE */
+.about-section p {
+  color: white;
+  font-size: 18px;
+}
+
+table tr:last-child td {
+  border-bottom-width: 0;
+}
 
 /* FOOTER */
 footer p {
@@ -55,28 +127,69 @@ footer p {
   padding-bottom: 1rem;
 }
 
-
-
-
 /* MOBILE AND TABLET */
 @media (max-width: 991px) {
   .container-fluid {
     padding: 3% 3% 7%;
   }
+
   h1 {
     color: white;
     font-size: 10vw;
+    text-align: center;
   }
+
   .header-logo-container p {
     font-size: 3vw;
     text-align: center;
   }
 
-.slogan-container {
-  padding: 0 9vw;
-}
+  .slogan-container {
+    padding: 0 9vw;
+  }
 
   .carousel-container {
     margin-top: 3rem;
+  }
+
+  .header-container {
+    height: auto;
+  }
+
+  /* CLASSES PAGE */
+
+
+  .classes-title, .class-title {
+    margin-bottom: 16px;
+  }
+
+  .classes-filters {
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  div.classes-filters > * {
+width: 40%;
+  }
+
+  .classes-table .table-row-flex-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 25px 0 0;
+  }
+
+  .classes-table .profile-card{
+  text-align: left;
+  display: block;
+  }
+
+  .classes-table .username {
+    display: inline;
+  }
+
+  .user-img {
+    display: inline-block;
+    width: 45px;
+    margin-right: 10px;
   }
 }

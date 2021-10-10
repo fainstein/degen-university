@@ -54,7 +54,35 @@ mongoose.connect("mongodb://localhost:27017/DeGenDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
-
+filtersArray = [{
+    value: "web30",
+    content: "Web 3.0"
+  },
+  {
+    value: "fitness",
+    content: "Fitness"
+  },
+  {
+    value: "diet",
+    content: "Diet"
+  },
+  {
+    value: "selfImprovement",
+    content: "Self-Improvement"
+  },
+  {
+    value: "finance",
+    content: "Finance"
+  },
+  {
+    value: "deFi",
+    content: "DeFi"
+  },
+  {
+    value: "nfts",
+    content: "NFTs"
+  }
+]
 
 // GET METHODS
 
@@ -62,6 +90,26 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
+app.get("/classes", function (req, res) {
+  console.log(filtersArray)
+  res.render("classes", {filters: filtersArray});
+});
+
+app.get("/shop", function (req, res) {
+  res.render("shop");
+});
+
+app.get("/deGens", function (req, res) {
+  res.render("deGens");
+});
+
+app.get("/about", function (req, res) {
+  res.render("about");
+});
+
+app.get("/contact", function (req, res) {
+  res.render("contact");
+});
 
 // POST METHODS
 

@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<div class="container-fluid">
+  <h1 class="classes-title">Find Our Classes</h1>
+  <div class="classes-filters">
+    <input class="form-control" type="text" name="searchQuery" placeholder="Search">
+    <select class="form-select">
+      <option selected>Sort by...</option>
+      <% for(let i=0; i < filters.length ; i++) { %>
+      <option value="<%- filters[i].value %>"><%- filters[i].content %> </option>
+      <% } %>
+    </select>
+
+  </div>
+  <table class="table table-dark table-hover classes-table">
+    <% for(let i=0; i < 3; i++) { %>
+    <tr>
+      <td>
+        <a href="#" class="table-row-link">
+
+          <div class="table-row-flex-wrapper">
+            <div class="profile-card">
+              <img src="./images/BowTiedOx.jpg" class="user-img rounded-circle" alt="user-img">
+              <p class="username">By BowTiedOx</p>
+            </div>
+            <div class="class-content">
+              <h2 class="class-title">Why you must train</h2>
+              <p class="class-description">
+                Here BowTiedOx, 5x DeGen Island bodybuilding champion is going to teach you the basics of training and it's importance
+                Here BowTiedOx, 5x DeGen Island bodybuilding champion is going to teach you the basics of training and it's importance
+              </p>
+              <p class="class-tags">Tags: <em>Fitness, Diet, DeFi</em></p>
+            </div>
+          </div>
+        </a>
+      </td>
+    </tr>
+    <% } %>
+  </table>
+
+</div>
+
+<%- include('partials/footer') %>
