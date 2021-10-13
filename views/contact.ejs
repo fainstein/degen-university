@@ -1,5 +1,22 @@
 <%- include('partials/header') %>
 
+<div class="container-fluid flex-wrapper-main">
+  <form class="" action="/contact" method="post">
+    <h1>Contact us</h1>
+    <p class="text-white">Have something on your mind? We're looking forward to be greater...</p>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" placeholder="You username">
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+      <label for="floatingTextarea2">Comments</label>
+    </div>
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-light btn-lg">Submit</button>
+    </div>
+  </form>
 
+</div>
 
 <%- include('partials/footer') %>

@@ -91,12 +91,15 @@ app.get("/", function (req, res) {
 });
 
 app.get("/classes", function (req, res) {
-  console.log(filtersArray)
   res.render("classes", {filters: filtersArray});
 });
 
+app.get("/class", function (req, res) {
+  res.render("class");
+});
+
 app.get("/shop", function (req, res) {
-  res.render("shop");
+  res.render("shop", {filters: filtersArray});
 });
 
 app.get("/deGens", function (req, res) {
@@ -110,6 +113,7 @@ app.get("/about", function (req, res) {
 app.get("/contact", function (req, res) {
   res.render("contact");
 });
+
 
 // POST METHODS
 

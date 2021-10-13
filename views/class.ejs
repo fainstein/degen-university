@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<div class="container-fluid">
+  <div class="single-class-container text-white">
+    <div class="profile-card">
+      <img src="./images/BowTiedOx.jpg" class="user-img rounded-circle" alt="user-img">
+      <p class="username">By BowTiedOx</p>
+    </div>
+    <div class="class-content">
+      <h2 class="class-title">Why you must train</h2>
+      <p class="class-description">
+        Here BowTiedOx, 5x DeGen Island bodybuilding champion is going to teach you the basics of training and it's importance
+        Here BowTiedOx, 5x DeGen Island bodybuilding champion is going to teach you the basics of training and it's importance
+      </p>
+      <p class="class-tags">Tags: <em>Fitness, Diet, DeFi</em></p>
+      <a href="#" class="text-white class-external-link">
+        <p>Did you like the content? Check out BowTiedOx website for more!</p>
+      </a>
+    </div>
+  </div>
+  <div class="comments-container mx-auto">
+      <form class="new-comment-form" action="/new-comment" method="post">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="You username">
+          <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+          <label for="floatingTextarea2">Leave a comment</label>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-light btn-lg">Publish</button>
+        </div>
+      </form>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

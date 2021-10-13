@@ -1,6 +1,33 @@
 <%- include('partials/header') %>
 
+<div class="container-fluid">
+  <h1 class="classes-title">DeGen Shop</h1>
+  <div class="classes-filters">
+    <input class="form-control" type="text" name="searchQuery" placeholder="Search">
+    <select class="form-select">
+      <option selected>Sort by...</option>
+      <% for(let i=0; i < filters.length ; i++) { %>
+      <option value="<%- filters[i].value %>"><%- filters[i].content %> </option>
+      <% } %>
+    </select>
+  </div>
 
+  <div class="row shop-container row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+
+    <% for(let i=0; i < 10 ; i++) { %>
+    <div class="col">
+      <div class="card h-100 text-white bg-dark my-3 border-light mx-auto">
+        <img src="./images/reptile.jpg" class="card-img-top" alt="...">
+        <div class="card-body pb-0">
+          <h5 class="card-title">OX's Fat Loss Program</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <a class="text-white shop-item-link" href="#">See more</a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
 
 
 

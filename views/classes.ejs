@@ -10,13 +10,12 @@
       <option value="<%- filters[i].value %>"><%- filters[i].content %> </option>
       <% } %>
     </select>
-
   </div>
   <table class="table table-dark table-hover classes-table">
     <% for(let i=0; i < 3; i++) { %>
     <tr>
       <td>
-        <a href="#" class="table-row-link">
+        <a href="/class" class="table-row-link">
 
           <div class="table-row-flex-wrapper">
             <div class="profile-card">
@@ -37,7 +36,6 @@
     </tr>
     <% } %>
   </table>
-
 </div>
 
 <%- include('partials/footer') %>

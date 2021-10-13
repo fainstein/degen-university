@@ -8,18 +8,18 @@
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
+
 }
 
 .flex-wrapper-main {
   height: 70vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   flex-direction: column;
 }
 
 /* HEADER */
-
 .header-row {
   flex-direction: row-reverse;
 }
@@ -56,7 +56,7 @@ h1 {
   align-items: center;
 }
 
-.carousel-item img {
+.carousel-item img, .shop-container img{
   object-fit: cover;
   height: 175px;
 }
@@ -78,8 +78,7 @@ h1 {
 }
 
 .classes-filters input {
-    width: 200px;
-    /* margin-left: auto; */
+  width: 200px;
 }
 
 .classes-filters select {
@@ -88,9 +87,9 @@ h1 {
 }
 
 a.table-row-link:link, a.table-row-link:visited {
-    text-decoration: inherit;
-    color: inherit;
-    cursor: pointer;
+  text-decoration: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
 .classes-table .profile-card {
@@ -120,12 +119,30 @@ table tr:last-child td {
   border-bottom-width: 0;
 }
 
+/* SINGLE CLASS PAGE */
+.class-external-link p {
+  text-align: center;
+  margin-top: 7rem;
+}
+
+.comments-container {
+  max-width: 50vw;
+  margin-top: 4rem;
+}
+
+/* SHOP PAGE */
+.shop-item-link {
+  position: relative;
+  bottom: 15px;
+}
+
 /* FOOTER */
 footer p {
   text-align: center;
   margin: 0;
   padding-bottom: 1rem;
 }
+
 
 /* MOBILE AND TABLET */
 @media (max-width: 991px) {
@@ -157,8 +174,6 @@ footer p {
   }
 
   /* CLASSES PAGE */
-
-
   .classes-title, .class-title {
     margin-bottom: 16px;
   }
@@ -168,8 +183,8 @@ footer p {
     margin-bottom: 0;
   }
 
-  div.classes-filters > * {
-width: 40%;
+  div.classes-filters>* {
+    width: 40%;
   }
 
   .classes-table .table-row-flex-wrapper {
@@ -178,9 +193,9 @@ width: 40%;
     padding: 25px 0 0;
   }
 
-  .classes-table .profile-card{
-  text-align: left;
-  display: block;
+  .classes-table .profile-card {
+    text-align: left;
+    display: block;
   }
 
   .classes-table .username {
@@ -192,4 +207,15 @@ width: 40%;
     width: 45px;
     margin-right: 10px;
   }
+
+  /* SINGLE CLASS PAGE */
+.class-external-link p {
+  margin-top: 5rem;
+}
+
+  .comments-container {
+    margin-top: 5rem;
+    max-width: none;
+  }
+
 }
