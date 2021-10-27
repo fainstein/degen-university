@@ -1,4 +1,5 @@
 /* GENERAL STYLES */
+
 .container-fluid {
   padding: 3% 12%;
 }
@@ -19,23 +20,71 @@
   flex-direction: column;
 }
 
+div.bg-circle {
+  border-radius: 50%;
+  z-index: -1 !important;
+}
+
+.bg-circle-top {
+  position: absolute;
+    height: 40vw;
+    width: 40vw;
+  left: 10vw;
+  top: 0;
+  transform: translateY(-50%);
+  animation: fade-in-top-circle 1.5s;
+}
+
+.bg-circle-bottom-container {
+  position: relative;
+  z-index: -1;
+}
+
+.bg-circle-bottom-container div {
+  position: absolute;
+  bottom: 0;
+  height: 100vh;
+  width: 99vw;
+  overflow: hidden;
+}
+
+div.bg-circle-bottom {
+  width: 40vw;
+  height: 40vw;
+  position: absolute;
+  right: 10vw;
+  bottom: 0;
+  transform: translateY(50%);
+  animation: fade-in-bottom-circle 1.5s;
+}
+
 /* HEADER */
+nav .brand-logo span {
+  font-size: 1.75rem;
+}
+
 .header-row {
   flex-direction: row-reverse;
+  margin-top: 100px;
 }
 
 .header-logo-container {
-  margin: auto 0;
-}
+    background-image: url("../images/colleges-are-zeros.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 20vh;
+    max-width: 80vw;
+  }
 
 h1 {
-  color: white;
+  /* color: white; */
   font-size: 4vw;
   /* font-family: 'Lato', sans-serif; */
 }
 
 .header-logo-container p {
-  color: rgba(255, 255, 255, .55);
+  /* color: rgba(255, 255, 255, .55); */
   font-size: 1.4vw;
 }
 
@@ -48,6 +97,14 @@ h1 {
 
 .carousel {
   padding: 0 15%;
+}
+
+.carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
 .card {
@@ -111,7 +168,7 @@ a.table-row-link:link, a.table-row-link:visited {
 
 /* ABOUT US PAGE */
 .about-section p {
-  color: white;
+  /* color: white; */
   font-size: 18px;
 }
 
@@ -144,6 +201,8 @@ footer p {
 }
 
 
+
+
 /* MOBILE AND TABLET */
 @media (max-width: 991px) {
   .container-fluid {
@@ -151,9 +210,20 @@ footer p {
   }
 
   h1 {
-    color: white;
     font-size: 10vw;
     text-align: center;
+  }
+
+  .bg-circle {
+  width: 100vw !important;
+  height: 100vw !important;
+  left: 0 !important;
+}
+
+
+
+  nav .brand-logo span {
+    font-size: 1.25rem;
   }
 
   .header-logo-container p {
@@ -218,4 +288,28 @@ footer p {
     max-width: none;
   }
 
+}
+
+@keyframes fade-in-top-circle {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(-50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(-50%);
+  }
+}
+
+@keyframes fade-in-bottom-circle {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(50%);
+  }
 }
