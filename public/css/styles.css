@@ -23,9 +23,9 @@ body {
 }
 
 .flex-wrapper-main {
-  height: 70vh;
+  min-height: 70vh;
   display: flex;
-  align-items: stretch;
+justify-content: space-around;
   flex-direction: column;
 }
 
@@ -81,14 +81,21 @@ button.btn:hover {
 animation: button-hover 1s infinite;
 }
 
+h1 {
+  font-size: 4vw;
+}
+
+
 /* HEADER */
 nav .brand-logo span {
   font-size: 1.75rem;
 }
 
+/* INDEX PAGE */
+
+
 .header-row {
   flex-direction: row-reverse;
-  margin-top: 100px;
 }
 
 .header-logo-container {
@@ -96,14 +103,8 @@ nav .brand-logo span {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 20vh;
+    min-height: 60vw;
   }
-
-h1 {
-  /* color: white; */
-  font-size: 4vw;
-  /* font-family: 'Lato', sans-serif; */
-}
 
 .header-logo-container p {
   /* color: rgba(255, 255, 255, .55); */
