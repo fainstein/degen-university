@@ -103,7 +103,7 @@ nav .brand-logo span {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 60vw;
+    min-height: 20vh;
   }
 
 .header-logo-container p {
@@ -255,6 +255,11 @@ footer p {
   nav .brand-logo span {
     font-size: 1.25rem;
   }
+
+  .header-logo-container {
+      height: 60vw;
+      max-height: 200px;
+    }
 
   .header-logo-container p {
     font-size: 3vw;
