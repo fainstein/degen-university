@@ -183,13 +183,9 @@ a.table-row-link:link, a.table-row-link:visited, a.profile-link {
   justify-content: space-around;
 }
 
-
-
 a.profile-link:hover > span.username {
 text-decoration: underline;
 }
-
-
 
 .user-img {
   width: 90px;
@@ -351,9 +347,10 @@ footer p {
   }
 
   .classes-table .profile-card {
-    text-align: left;
-    display: block;
+    flex-direction: row;
+    justify-content: flex-start;
   }
+
 
   .classes-table .username {
     display: inline;
