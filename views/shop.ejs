@@ -16,13 +16,15 @@
 
     <% for(let i=0; i < 10 ; i++) { %>
     <div class="col">
-        <div class="card h-100 my-3 mx-auto" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="<%= (50*(i+1)) %>" data-aos-offset="0">
+      <div class="card h-100 my-3 mx-auto" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="<%= (50*(i+1)) %>" data-aos-offset="0">
         <img src="./images/reptile.jpg" class="card-img-top" alt="...">
         <div class="card-body pb-0">
           <h5 class="card-title">OX's Fat Loss Program</h5>
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="shop-price">255 U$TT</p>
+          <p class="class-tags">Tags: <em>Fitness, Diet, DeFi</em></p>
         </div>
-        <a class="text-secondary shop-item-link" href="#">See more</a>
+          <a class="text-secondary shop-item-link" href="#">See more</a>
       </div>
     </div>
     <% } %>

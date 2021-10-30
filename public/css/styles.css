@@ -25,7 +25,6 @@ body {
 .flex-wrapper-main {
   min-height: 70vh;
   display: flex;
-justify-content: space-around;
   flex-direction: column;
 }
 
@@ -93,6 +92,9 @@ nav .brand-logo span {
 
 /* INDEX PAGE */
 
+.index-container {
+  justify-content: space-around;
+}
 
 .header-row {
   flex-direction: row-reverse;
@@ -166,7 +168,7 @@ nav .brand-logo span {
   margin-left: 20px;
 }
 
-a.table-row-link:link, a.table-row-link:visited {
+a.table-row-link:link, a.table-row-link:visited, a.profile-link {
   text-decoration: inherit;
   color: inherit;
   cursor: pointer;
@@ -181,23 +183,16 @@ a.table-row-link:link, a.table-row-link:visited {
   justify-content: space-around;
 }
 
-.classes-table .username {
-  margin-bottom: 0;
+
+
+a.profile-link:hover > span.username {
+text-decoration: underline;
 }
+
+
 
 .user-img {
   width: 90px;
-}
-
-/* ABOUT US PAGE */
-
-
-.about-section h1 {
-    margin-bottom: 4rem;
-}
-
-.about-section p{
-  font-size: 18px;
 }
 
 table tr:last-child td {
@@ -215,10 +210,53 @@ table tr:last-child td {
   margin-top: 4rem;
 }
 
+/* ABOUT US PAGE */
+.about-section h1 {
+  margin-bottom: 4rem;
+}
+
+.about-section p{
+  font-size: 18px;
+}
+
 /* SHOP PAGE */
+
+.shop-container .card {
+  text-align: center;
+}
+
 .shop-item-link {
   position: relative;
   bottom: 15px;
+}
+
+.shop-price {
+  font-weight: 500;
+  font-size: 110%;
+}
+
+/* DEGENS PAGE */
+
+.profile-card-bg {
+
+}
+
+.degen-card-wrapper {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.degens-img {
+  width: 90px;
+  margin: 0 2.5rem;
+}
+
+.user-links .username:hover {
+  text-decoration: underline;
+  color: #6c757d;
 }
 
 /* FOOTER */
@@ -228,8 +266,22 @@ footer p {
   padding-bottom: 1rem;
 }
 
+/* BIG SCREENS */
+
+@media (min-width: 1200px) {
+  .degens-img {
+    margin: 0 1rem;
+  }
+}
 
 
+/* MOBILE SCREENS */
+@media (max-width: 576px) {
+  .degens-img {
+    margin: 0 1rem;
+    width: 90px;
+  }
+}
 
 /* MOBILE AND TABLET */
 @media (max-width: 991px) {

@@ -15,13 +15,20 @@
     <% for(let i=0; i < 3; i++) { %>
     <tr>
       <td>
-        <a href="/class" class="table-row-link">
 
-          <div class="table-row-flex-wrapper">
-            <div class="profile-card">
-              <img src="./images/BowTiedOx.jpg" class="user-img rounded-circle" alt="user-img">
-              <p class="username">By BowTiedOx</p>
+
+        <div class="table-row-flex-wrapper">
+          <div class="profile-card">
+            <img src="./images/BowTiedOx.jpg" class="user-img rounded-circle" alt="user-img">
+            <div class="username-container">
+              <a class="profile-link" href="https://www.twitter.com" target="_blank">
+                <span class="iconify" data-icon="mdi:twitter" data-width="20" data-height="20"></span>
+                <span> </span>
+                <span class="username">BowTiedOx</span>
+              </a>
             </div>
+          </div>
+          <a href="/class" class="table-row-link">
             <div class="class-content">
               <h2 class="class-title">Why you must train</h2>
               <p class="class-description">
@@ -29,13 +36,13 @@
                 Here BowTiedOx, 5x DeGen Island bodybuilding champion is going to teach you the basics of training and it's importance
               </p>
               <p class="class-tags">Tags: <em>Fitness, Diet, DeFi</em></p>
-            </div>
-          </div>
-        </a>
-      </td>
-    </tr>
-    <% } %>
-  </table>
+          </a>
+        </div>
+</div>
+</td>
+</tr>
+<% } %>
+</table>
 </div>
 
 <%- include('partials/footer') %>
