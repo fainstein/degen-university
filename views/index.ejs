@@ -5,34 +5,27 @@
     <div class="col-12 col-lg-6  header-logo-container"></div>
     <div class="col-12 col-lg-6 carousel-container index-section">
       <div id="carouselCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner ">
+        <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="card">
-              <img src="./images/BowTiedOx.jpg" class="card-img-top" alt="...">
+              <img src="./images/<%-newsArray[0].image %>" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Lorem ipsum 1</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h5 class="card-title"><%-newsArray[0].title %></h5>
+                  <p class="card-text"><%-newsArray[0].description %></p>
               </div>
             </div>
           </div>
+          <% for (let i=1 ; i<newsArray.length ; i++) {%>
           <div class="carousel-item">
             <div class="card">
-              <img src="./images/angryBird.jpeg" class="card-img-top" alt="...">
+              <img src="./images/<%-newsArray[i].image %>" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Lorem ipsum 2</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h5 class="card-title"><%-newsArray[i].title %></h5>
+                <p class="card-text"><%-newsArray[i].description %></p>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="card">
-              <img src="./images/reptile.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Lorem ipsum 3</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-            </div>
-          </div>
+          <% } %>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

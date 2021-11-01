@@ -3,43 +3,41 @@
 <div class="container-fluid">
   <h1 class="classes-title">Find Our Classes</h1>
   <div class="classes-filters">
-<inputclass="form-control" type="text" name="searchQuery" placeholder="Search">
+    <input class="form-control" type="text" name="searchQuery" placeholder="Search">
     <select class="form-select">
       <option selected>Sort by...</option>
       <% for(let i=0; i < filters.length ; i++) { %>
-      <option value="<%- filters[i].value %>"><%- filters[i].content %> </option>
+      <option value="<%- filters[i].value %>"><%- filters[i].content %></option>
       <% } %>
     </select>
   </div>
   <table class="table table-hover classes-table">
-    <% for(let i=0; i < 3; i++) { %>
+    <% for(let i=0; i < classesArray.length ; i++) { %>
     <tr>
       <td>
         <div class="table-row-flex-wrapper">
           <div class="profile-card">
-            <img src="./images/BowTiedOx.jpg" class="user-img rounded-circle" alt="user-img">
+            <img src="./images/<%- classesArray[i].deGen.avatarImg %>" class="user-img rounded-circle" alt="user-img">
             <div class="username-container">
-              <a class="profile-link" href="https://www.twitter.com" target="_blank">
+              <a class="profile-link" href="https://www.twitter.com/<%- classesArray[i].deGen.twitter %>" target="_blank">
                 <span class="iconify" data-icon="mdi:twitter" data-width="20" data-height="20"></span>
                 <span> </span>
-                <span class="username">BowTiedOx</span>
+                <span class="username"><%- classesArray[i].deGen.alias %></span>
               </a>
             </div>
           </div>
           <a href="/class" class="table-row-link">
             <div class="class-content">
-              <h2 class="class-title">Why you must train</h2>
+              <h2 class="class-title"><%- classesArray.tittle %></h2>
               <p class="class-description">
-                Here BowTiedOx, 5x DeGen Island bodybuilding champion is going to teach you the basics of training and it's importance
-                Here BowTiedOx, 5x DeGen Island bodybuilding champion is going to teach you the basics of training and it's importance
-              </p>
-              <p class="class-tags">Tags: <em>Fitness, Diet, DeFi</em></p>
+                <%- classesArray[i].shortDescription %></p>
+              <p class="class-tags">Tags: <em><%- classesArray[i].tags.slice(0, -1).join(', ') + ", " + classesArray[i].tags.slice(-1)%></em></p>
           </a>
-      </div>
-    </td>
-</tr>
-<% } %>
-</table>
+        </div>
+      </td>
+    </tr>
+    <% } %>
+  </table>
 </div>
 
 <%- include('partials/footer') %>

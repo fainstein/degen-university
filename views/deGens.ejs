@@ -5,26 +5,25 @@
 
   <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4">
 
-    <% for(let i=0; i < 10 ; i++) { %>
+    <% for(let i=0; i < deGensArray.length ; i++) { %>
     <div class="col">
       <div class="card h-100 degen-card-wrapper" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="<%= (50*(i+1)) %>" data-aos-offset="0">
-
         <div>
           <div class="profile-card-bg bg-light"></div>
-          <img src="./images/angryBird.jpeg" class="degens-img rounded-circle" alt="user-img">
+          <img src="./images/<%- deGensArray[i].avatarImg %>" class="degens-img rounded-circle" alt="user-img">
         </div>
         <div class="user-links-container">
-          <h5 class="card-title">BowTiedOx</h5>
-          <a class="profile-link" href="https://www.substack.com" target="_blank">
+          <h5 class="card-title"><%- deGensArray[i].alias %></h5>
+          <a class="profile-link" href="https://www.twitter.com/<%- deGensArray[i].twitter %>" target="_blank">
             <div class="user-links">
               <span class="iconify" data-icon="mdi:twitter" data-width="20" data-height="20"></span>
-              <span class="username">BowTiedOx</span>
+              <span class="username"><%- deGensArray[i].twitter %></span>
             </div>
           </a>
-          <a class="profile-link" href="https://www.substack.com" target="_blank">
+          <a class="profile-link" href="<%- deGensArray[i].substackLink %>" target="_blank">
             <div class="user-links">
               <span class="iconify" data-icon="simple-icons:substack"></span>
-              <span class="username">BowTiedOxasdasd</span>
+              <span class="username"><%- deGensArray[i].substack %></span>
             </div>
           </a>
         </div>

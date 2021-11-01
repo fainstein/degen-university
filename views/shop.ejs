@@ -14,17 +14,17 @@
 
   <div class="row shop-container row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
 
-    <% for(let i=0; i < 10 ; i++) { %>
+    <% for(let i=0; i < shopItemArray.length ; i++) { %>
     <div class="col">
       <div class="card h-100 my-3 mx-auto" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="<%= (50*(i+1)) %>" data-aos-offset="0">
-        <img src="./images/reptile.jpg" class="card-img-top" alt="...">
+        <img src="./images/<%- shopItemArray[i].image %>" class="card-img-top" alt="...">
         <div class="card-body pb-0">
-          <h5 class="card-title">OX's Fat Loss Program</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <p class="shop-price">255 U$TT</p>
-          <p class="class-tags">Tags: <em>Fitness, Diet, DeFi</em></p>
+          <h5 class="card-title"><%- shopItemArray[i].title %></h5>
+          <p class="card-text"><%- shopItemArray[i].content %></p>
+          <p class="shop-price"><%- shopItemArray[i].price %></p>
+          <p class="class-tags">Tags: <em><%- shopItemArray[i].tags.slice(0, -1).join(', ') + ", " + shopItemArray[i].tags.slice(-1)%></em></p>
         </div>
-          <a class="text-secondary shop-item-link" href="#">See more</a>
+        <a class="text-secondary shop-item-link" href="<%- shopItemArray[i].link %>">See more</a>
       </div>
     </div>
     <% } %>
