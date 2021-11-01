@@ -32,13 +32,37 @@
     </div>
   </div>
   <div class="comments-container mx-auto">
+    <h2 class="mb-4">3 Comments</h2>
+
+    <table class="table">
+      <% for(let i=0; i < 3; i++) { %>
+      <tr>
+        <td>
+          <div class="comment-info-wrapper">
+            <div class="comment-username">
+              <span class="iconify" data-icon="mdi:account-circle" style="color: #6c757d;" data-width="24" data-height="24"></span>
+              <h5 class="class-title mx-1">BowTiedOx</h5>
+            </div>
+            <div class="comment-date">
+              <p>19 OCT 2021</p>
+            </div>
+          </div>
+          <p class="class-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+<h2 class="mb-4">Leave a comment</h2>
     <form class="new-comment-form" action="/new-comment" method="post">
       <div class="form-floating mb-3">
         <input type="text" class="form-control" id="floatingInput" placeholder="You username">
         <label for="floatingInput">Username</label>
       </div>
       <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
         <label for="floatingTextarea2">Leave a comment</label>
       </div>
       <div class="d-grid gap-2">

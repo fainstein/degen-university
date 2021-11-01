@@ -1,13 +1,15 @@
 /* GENERAL STYLES */
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
   display: none;
 }
+
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .container-fluid {
@@ -19,7 +21,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
-
 }
 
 .flex-wrapper-main {
@@ -35,8 +36,8 @@ div.bg-circle {
 
 .bg-circle-top {
   position: absolute;
-    height: 40vw;
-    width: 40vw;
+  height: 40vw;
+  width: 40vw;
   left: 10vw;
   top: 0;
   transform: translateY(-50%);
@@ -77,13 +78,12 @@ button.btn {
 }
 
 button.btn:hover {
-animation: button-hover 1s infinite;
+  animation: button-hover 1s infinite;
 }
 
 h1 {
   font-size: 4vw;
 }
-
 
 /* HEADER */
 nav .brand-logo span {
@@ -91,7 +91,6 @@ nav .brand-logo span {
 }
 
 /* INDEX PAGE */
-
 .index-container {
   justify-content: space-around;
 }
@@ -101,12 +100,12 @@ nav .brand-logo span {
 }
 
 .header-logo-container {
-    background-image: url("../images/colleges-are-zeros.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 20vh;
-  }
+  background-image: url("../images/colleges-are-zeros.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 20vh;
+}
 
 .header-logo-container p {
   /* color: rgba(255, 255, 255, .55); */
@@ -125,7 +124,7 @@ nav .brand-logo span {
 }
 
 .carousel-control-prev-icon {
- background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
 
 .carousel-control-next-icon {
@@ -138,7 +137,7 @@ nav .brand-logo span {
   align-items: center;
 }
 
-.carousel-item img, .shop-container img{
+.carousel-item img, .shop-container img {
   object-fit: cover;
   height: 175px;
 }
@@ -183,8 +182,8 @@ a.table-row-link:link, a.table-row-link:visited, a.profile-link {
   justify-content: space-around;
 }
 
-a.profile-link:hover > span.username {
-text-decoration: underline;
+a.profile-link:hover>span.username {
+  text-decoration: underline;
 }
 
 .user-img {
@@ -206,17 +205,29 @@ table tr:last-child td {
   margin-top: 4rem;
 }
 
+.comments-container h2 {
+  text-align: center;
+}
+
+.comment-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-username {
+  display: flex;
+}
+
 /* ABOUT US PAGE */
 .about-section h1 {
   margin-bottom: 4rem;
 }
 
-.about-section p{
+.about-section p {
   font-size: 18px;
 }
 
 /* SHOP PAGE */
-
 .shop-container .card {
   text-align: center;
 }
@@ -232,10 +243,7 @@ table tr:last-child td {
 }
 
 /* DEGENS PAGE */
-
-.profile-card-bg {
-
-}
+.profile-card-bg {}
 
 .degen-card-wrapper {
   padding: 1rem 0;
@@ -263,13 +271,11 @@ footer p {
 }
 
 /* BIG SCREENS */
-
 @media (min-width: 1200px) {
   .degens-img {
     margin: 0 1rem;
   }
 }
-
 
 /* MOBILE SCREENS */
 @media (max-width: 576px) {
@@ -290,24 +296,28 @@ footer p {
     text-align: center;
   }
 
-  .bg-circle {
-  width: 100vw !important;
-  height: 100vw !important;
-  left: 0 !important;
-}
+  button.btn {
+    width: auto;
+  }
 
-.bg-circle-bottom-container div {
-  width: 99vw;
-}
+  .bg-circle {
+    width: 100vw !important;
+    height: 100vw !important;
+    left: 0 !important;
+  }
+
+  .bg-circle-bottom-container div {
+    width: 99vw;
+  }
 
   nav .brand-logo span {
     font-size: 1.25rem;
   }
 
   .header-logo-container {
-      height: 60vw;
-      max-height: 200px;
-    }
+    height: 60vw;
+    max-height: 200px;
+  }
 
   .header-logo-container p {
     font-size: 3vw;
@@ -351,7 +361,6 @@ footer p {
     justify-content: flex-start;
   }
 
-
   .classes-table .username {
     display: inline;
   }
@@ -363,15 +372,14 @@ footer p {
   }
 
   /* SINGLE CLASS PAGE */
-.class-external-link p {
-  margin-top: 5rem;
-}
+  .class-external-link p {
+    margin-top: 5rem;
+  }
 
   .comments-container {
     margin-top: 5rem;
     max-width: none;
   }
-
 }
 
 @keyframes fade-in-top-circle {
@@ -398,15 +406,14 @@ footer p {
   }
 }
 
-
 @keyframes button-hover {
   0% {
     background-color: #1787AC;
-      background-image: url("../images/submit-neg.png");
+    background-image: url("../images/submit-neg.png");
   }
 
   100% {
     background-color: #1787AC;
-      background-image: url("../images/submit-neg.png");
+    background-image: url("../images/submit-neg.png");
   }
 }
