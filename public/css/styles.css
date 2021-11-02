@@ -218,8 +218,6 @@ table tr:last-child td {
   display: flex;
 }
 
-
-
 /* ABOUT US PAGE */
 .about-section h1 {
   margin-bottom: 4rem;
@@ -271,6 +269,28 @@ footer p {
   margin: 0;
   padding-bottom: 1rem;
 }
+
+/* LOGIN PAGE */
+
+.login-container{
+  max-width: 60vw;
+}
+
+form.login-form button.btn{
+  background: inherit;
+  transition: none;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+form.login-form button.btn:hover{
+animation: inherit;
+color: black;
+}
+
+
+
 
 /* BIG SCREENS */
 @media (min-width: 1200px) {

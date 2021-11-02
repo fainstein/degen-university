@@ -217,6 +217,10 @@ app.get("/contact", function (req, res) {
   res.render("contact");
 });
 
+app.get("/login", function (req, res) {
+  res.render("login");
+});
+
 
 // POST METHODS
 
