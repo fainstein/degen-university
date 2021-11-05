@@ -26,9 +26,9 @@
               </a>
             </div>
           </div>
-          <a href="/class" class="table-row-link">
+          <a href="/class/<%-classesArray[i]._id %>" class="table-row-link">
             <div class="class-content">
-              <h2 class="class-title"><%- classesArray.tittle %></h2>
+              <h2 class="class-title"><%- classesArray[i].title %></h2>
               <p class="class-description">
                 <%- classesArray[i].shortDescription %></p>
               <p class="class-tags">Tags: <em><%- classesArray[i].tags.slice(0, -1).join(', ') + ", " + classesArray[i].tags.slice(-1)%></em></p>
