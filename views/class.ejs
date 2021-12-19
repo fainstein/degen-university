@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <div class="single-class-container">
     <div class="profile-card">
-      <img src="/images/<%- deGenClass.deGen.avatarImg %>" class="user-img rounded-circle" alt="user-img">
+      <img src="../<%- deGenClass.deGen.avatarImg %>" class="user-img rounded-circle" alt="user-img">
       <p class="username">By <%- deGenClass.deGen.alias %></p>
     </div>
     <div class="class-content">
@@ -45,15 +45,16 @@
     <h2 class="mb-4">Leave a comment</h2>
     <form class="new-comment-form" action="/new-comment" method="post">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="You username">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Your username" name="author">
         <label for="floatingInput">Username</label>
       </div>
       <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px" name="commentContent"></textarea>
         <label for="floatingTextarea2">Leave a comment</label>
       </div>
+      <input type="hidden" name="classId" value="<%-deGenClass._id %>" />
       <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-light btn-lg  border-dark"></button>
+        <button type="submit" class="btn btn-light btn-lg border-dark submit-btn"></button>
       </div>
     </form>
   </div>

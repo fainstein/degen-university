@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <h1 class="classes-title">DeGen Shop</h1>
   <div class="classes-filters">
-    <input class="form-control" type="text" name="searchQuery" placeholder="Search">
+    <input class="form-control search-filter" type="text" name="searchQuery" placeholder="Search">
     <select class="form-select">
       <option selected>Sort by...</option>
       <% for(let i=0; i < filters.length ; i++) { %>
@@ -15,9 +15,16 @@
   <div class="row shop-container row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
 
     <% for(let i=0; i < shopItemArray.length ; i++) { %>
-    <div class="col">
+      <% let classes = ""; %>
+      <% for (let j=0; j< filters.length ; j++) { %>
+        <% if (shopItemArray[i].tags.includes(filters[j].content)) {%>
+          <% classes = classes + " " + filters[j].value; %>
+        <% } %>
+      <% } %>
+
+    <div class="col cardSelector <%- classes%>">
       <div class="card h-100 my-3 mx-auto" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="<%= (50*(i+1)) %>" data-aos-offset="0">
-        <img src="./images/<%- shopItemArray[i].image %>" class="card-img-top" alt="...">
+        <img src="../<%- shopItemArray[i].image %>" class="card-img-top" alt="...">
         <div class="card-body pb-0">
           <h5 class="card-title"><%- shopItemArray[i].title %></h5>
           <p class="card-text"><%- shopItemArray[i].content %></p>
@@ -32,5 +39,5 @@
 </div>
 
 
-
+<script src="shopFilter.js" charset="utf-8"></script>
 <%- include('partials/footer') %>

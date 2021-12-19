@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>DeGen Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/stylesAdmin.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">
+          <div class="brand-logo">
+            <span>DeGen Admin</span>
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/adminClasses">Classes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminDeGens">DeGens</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminShop">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+<main>
+
+
+<div class="container-fluid">
+  <div class="single-class-container">
+    <div class="profile-card">
+      <img src="/<%- deGenClass.deGen.avatarImg %>" class="user-img rounded-circle" alt="user-img">
+      <p class="username">By <%- deGenClass.deGen.alias %></p>
+    </div>
+    <div class="class-content">
+      <h2 class="class-title"><%- deGenClass.title %></h2>
+      <p class="class-description">
+        <%- deGenClass.shortDescription %>
+      </p>
+      <% for(let i=0; i < deGenClass.description.length ; i++) { %>
+      <p><%- deGenClass.description[i] %></p>
+      <% } %>
+      <a href="#" class="class-external-link">
+        <p>Did you like the content? Check out <%- deGenClass.deGen.alias %> website for more!</p>
+      </a>
+    </div>
+  </div>
+  <div class="comments-container mx-auto">
+    <h2 class="mb-4"><%- deGenClass.comments.length %> Comments</h2>
+
+    <table class="table">
+      <% for(let i=0; i < deGenClass.comments.length; i++) { %>
+      <tr>
+        <td>
+          <div class="admin-comment">
+            <div class="crud-container">
+              <button class="crud-button delete-btn" type="button" name="idTarget" value="<%-i %>"></button>
+              <span class="iconify" data-icon="mdi:delete" style="color: #e06666;" data-width="48" data-height="48"> </span>
+            </div>
+            <div class="comment-info-wrapper">
+              <div class="comment-username">
+                <span class="iconify" data-icon="mdi:account-circle" style="color: #6c757d;" data-width="24" data-height="24"></span>
+                <h5 class="class-title mx-1"><%- deGenClass.comments[i].author %></h5>
+              </div>
+              <div class="comment-date">
+                <p><%- deGenClass.comments[i].date.getDate()  + "-" + (deGenClass.comments[i].date.toLocaleString("en-us", { month: "short" })) + "-" + deGenClass.comments[i].date.getFullYear() %></p>
+              </div>
+            </div>
+            <p class="class-description">
+              <%- deGenClass.comments[i].content %>
+            </p>
+          </div>
+
+        </td>
+      </tr>
+      <% } %>
+    </table>
+
+  </div>
+</div>
+
+<div class="bg-difusor hidden delete-element-container">
+  <div class="confirmation-container">
+    <h3>Delete element?</h3>
+    <div class="btn-wrapper">
+      <button class="btn cancel-btn" type="button" name="button">Cancel</button>
+      <form class="" action="/deleteComment" method="post">
+        <input type="hidden" name="classId" value="<%-deGenClass._id %>" />
+        <button class="btn btn-danger confirm-btn delete-confirm" type="submit" name="idTarget">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+</main>
+<script src="/adminComments.js" charset="utf-8"></script>
+</body>
+
+</html>

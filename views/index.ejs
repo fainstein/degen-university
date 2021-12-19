@@ -2,13 +2,13 @@
 
 <div class="container-fluid flex-wrapper-main index-container">
   <div class="row header-row">
-    <div class="col-12 col-lg-6  header-logo-container"></div>
+    <div class="col-12 col-lg-6  header-logo-container">
     <div class="col-12 col-lg-6 carousel-container index-section">
       <div id="carouselCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="card">
-              <img src="./images/<%-newsArray[0].image %>" class="card-img-top" alt="...">
+              <img src="./<%-newsArray[0].image %>" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><%-newsArray[0].title %></h5>
                   <p class="card-text"><%-newsArray[0].description %></p>
@@ -18,10 +18,14 @@
           <% for (let i=1 ; i<newsArray.length ; i++) {%>
           <div class="carousel-item">
             <div class="card">
-              <img src="./images/<%-newsArray[i].image %>" class="card-img-top" alt="...">
+              <img src="./<%-newsArray[i].image %>" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><%-newsArray[i].title %></h5>
-                <p class="card-text"><%-newsArray[i].description %></p>
+                <% if (newsArray[i].description.length <= 140) { %>
+                    <p class="card-text"><%-newsArray[i].description %></p>
+                <% } else { %>
+                    <p class="card-text"><%-newsArray[i].description.slice(0,140) + "..." %></p>
+                <% } %>
               </div>
             </div>
           </div>

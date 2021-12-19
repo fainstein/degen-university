@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>DeGen Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+
+  <link rel="stylesheet" href="/css/stylesAdmin.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">
+          <div class="brand-logo">
+            <span>DeGen Admin</span>
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/adminClasses">Classes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminDeGens">DeGens</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminShop">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container-fluid">
+      <h1>Main News</h1>
+      <div class="crudWrapper">
+        <div class="crud-container">
+          <button class="crud-button new-btn" type="button" name="button"></button>
+          <span class="iconify" data-icon="mdi:pencil" style="color: #50a25b;" data-width="48" data-height="48"></span>
+        </div>
+        <div>
+          <h3>Create element</h3>
+        </div>
+      </div>
+      <% for (let i=0 ; i<newsArray.length ; i++) {%>
+      <div class="crudWrapper">
+        <div class="crud-container">
+          <button class="crud-button delete-btn" type="button" name="idTarget" value="<%-newsArray[i]._id-%>"></button>
+          <span class="iconify" data-icon="mdi:delete" style="color: #e06666;" data-width="48" data-height="48"> </span>
+        </div>
+        <div class="element-container">
+          <div class="card element-item h-100 mb-2">
+            <img src="../<%-newsArray[i].image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%-newsArray[i].title %></h5>
+              <% if (newsArray[i].description.length <= 140) { %>
+                  <p class="card-text"><%-newsArray[i].description %></p>
+              <% } else { %>
+                  <p class="card-text"><%-newsArray[i].description.slice(0,140) + "..." %></p>
+              <% } %>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+    <div class="bg-difusor hidden new-element-container">
+      <div class="new-element-form card p-4">
+        <form action="/admin" method="post" enctype="multipart/form-data">
+          <h3>Create News</h3>
+          <div class="mb-3">
+            <label for="newsTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" id="newsTitle" name="newsTitle">
+          </div>
+          <div class="mb-3">
+            <label for="newsDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="newsDescription" name="newsDescription" placeholder="Up to 140 characters" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="userImg" class="form-label">Attach image</label>
+            <input class="form-control" type="file" id="userImg" name="userImg">
+          </div>
+          <div class="btn-wrapper">
+            <button class="btn create-cancel-btn" type="button" name="button">Cancel</button>
+            <button class="btn btn-success confirm-btn" type="submit" name="idTarget">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="bg-difusor hidden delete-element-container">
+      <div class="confirmation-container">
+        <h3>Delete element?</h3>
+        <div class="btn-wrapper">
+          <button class="btn cancel-btn" type="button" name="button">Cancel</button>
+          <form class="" action="/deleteNews" method="post">
+            <button class="btn btn-danger confirm-btn delete-confirm" type="submit" name="idTarget">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <script src="admin.js" charset="utf-8"></script>
+</body>
+
+</html>

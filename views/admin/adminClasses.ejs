@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>DeGen Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/stylesAdmin.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">
+          <div class="brand-logo">
+            <span>DeGen Admin</span>
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/adminClasses">Classes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminDeGens">DeGens</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminShop">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container-fluid">
+      <h1 class="classes-title">Classes</h1>
+      <div class="classes-filters">
+        <input class="form-control search-filter" type="text" name="searchQuery" placeholder="Search">
+        <select class="form-select">
+          <option selected>Sort by...</option>
+          <% for(let i=0; i < filtersArray.length ; i++) { %>
+          <option value="<%- filtersArray[i].value %>"><%- filtersArray[i].content %></option>
+          <% } %>
+        </select>
+      </div>
+            <div class="table-row-flex-wrapper">
+              <div class="crudWrapper">
+                <div class="crud-container">
+                  <button class="crud-button new-btn" type="button" name="button"></button>
+                  <span class="iconify" data-icon="mdi:pencil" style="color: #50a25b;" data-width="48" data-height="48"></span>
+                </div>
+                <div>
+                  <h3>Create element</h3>
+                </div>
+              </div>
+            </div>
+          <table class="table table-hover classes-table">
+          <% for(let i=0; i < classesArray.length ; i++) { %>
+            <% let classes = ""; %>
+            <% for (let j=0; j< filtersArray.length ; j++) { %>
+              <% if (classesArray[i].tags.includes(filtersArray[j].content)) {%>
+                <% classes = classes + " " + filtersArray[j].value; %>
+              <% } %>
+            <% } %>
+          <tr class="<%- classes %>">
+          <td>
+            <div class="table-row-flex-wrapper">
+              <div class="crud-container">
+                <button class="crud-button delete-btn" type="button" name="idTarget" value="<%-classesArray[i]._id-%>"></button>
+                <span class="iconify" data-icon="mdi:delete" style="color: #e06666;" data-width="48" data-height="48"> </span>
+              </div>
+              <div class="profile-card">
+                <img src="../<%- classesArray[i].deGen.avatarImg %>" class="user-img rounded-circle" alt="user-img">
+                <div class="username-container">
+                  <a class="profile-link" href="https://www.twitter.com/<%- classesArray[i].deGen.twitter %>" target="_blank">
+                    <span class="iconify" data-icon="mdi:twitter" data-width="20" data-height="20"></span>
+                    <span> </span>
+                    <span class="username"><%- classesArray[i].deGen.alias %></span>
+                  </a>
+                </div>
+              </div>
+              <a href="/admin/classes/<%-classesArray[i]._id %>" class="table-row-link">
+                <div class="class-content">
+                  <h2 class="class-title"><%- classesArray[i].title %></h2>
+                  <p class="class-description">
+                    <%- classesArray[i].shortDescription %></p>
+                  <p class="class-tags">Tags: <em><%- classesArray[i].tags.slice(0, -1).join(', ') + ", " + classesArray[i].tags.slice(-1)%></em></p>
+            </div>
+            </a>
+          </td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+    <div class="bg-difusor hidden new-element-container">
+      <div class="new-element-form card p-4">
+        <form action="/adminClasses" method="post">
+          <h3>Create Class</h3>
+          <div class="mb-3">
+            <label for="classTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" id="classTitle" name="classTitle">
+          </div>
+          <div class="mb-3">
+            <label for="classShortDescription" class="form-label">Short Description</label>
+            <textarea class="form-control" id="classShortDescription" name="classShortDescription" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="classDescription" class="form-label">Description (press enter to divide in paragraphs)</label>
+            <textarea class="form-control" id="classDescription" name="classDescription" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <% for(let i=0; i < filtersArray.length ; i++) { %>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="<%-filtersArray[i].value%>" name="<%-filtersArray[i].value%>" value="<%-filtersArray[i].value%>">
+                <label class="form-check-label" for="<%-filtersArray[i].value%>"><%-filtersArray[i].content%></label>
+              </div>
+            <% } %>
+          </div>
+          <div class="mb-3">
+            <select class="form-select" name="classDeGen">
+              <option selected>DeGen</option>
+              <% for(let i=0; i < deGensArray.length ; i++) { %>
+              <option value="<%- deGensArray[i]._id %>"><%- deGensArray[i].alias %></option>
+              <% } %>
+            </select>
+          </div>
+          <div class="btn-wrapper">
+            <button class="btn create-cancel-btn" type="button" name="button">Cancel</button>
+            <button class="btn btn-success confirm-btn" type="submit" name="idTarget">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="bg-difusor hidden delete-element-container">
+      <div class="confirmation-container">
+        <h3>Delete element?</h3>
+        <div class="btn-wrapper">
+          <button class="btn cancel-btn" type="button" name="button">Cancel</button>
+          <form class="" action="/deleteClass" method="post">
+            <button class="btn btn-danger confirm-btn delete-confirm" type="submit" name="idTarget">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="admin.js" charset="utf-8"></script>
+  <script src="classesFilter.js" charset="utf-8"></script>
+</body>
+</html>

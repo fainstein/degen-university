@@ -1,4 +1,9 @@
 /* GENERAL STYLES */
+
+.hidden {
+  display: none;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
   display: none;
@@ -67,7 +72,7 @@ div.bg-circle-bottom {
   animation: fade-in-bottom-circle 1.5s;
 }
 
-button.btn {
+button.submit-btn {
   background-image: url("../images/submit.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -77,7 +82,7 @@ button.btn {
   transition: 1s;
 }
 
-button.btn:hover {
+button.submit-btn:hover {
   animation: button-hover 1s infinite;
 }
 
@@ -261,6 +266,11 @@ table tr:last-child td {
 .user-links .username:hover {
   text-decoration: underline;
   color: #6c757d;
+  cursor: pointer;
+}
+
+.user-links {
+  cursor: default;
 }
 
 /* FOOTER */
@@ -276,7 +286,7 @@ footer p {
   max-width: 60vw;
 }
 
-form.login-form button.btn{
+form.login-form button.submit-btn{
   background: inherit;
   transition: none;
   display: block;
@@ -284,7 +294,7 @@ form.login-form button.btn{
   width: 100%;
 }
 
-form.login-form button.btn:hover{
+form.login-form button.submit-btn:hover{
 animation: inherit;
 color: black;
 }
@@ -318,7 +328,7 @@ color: black;
     text-align: center;
   }
 
-  button.btn {
+  button.submit-btn {
     width: auto;
   }
 

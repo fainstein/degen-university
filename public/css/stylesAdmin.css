@@ -1,0 +1,81 @@
+.container-fluid {
+  padding: 3% 12%;
+}
+
+.crudWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.no-min-height {
+  min-height: 0;
+}
+
+.card {
+  height: auto;
+}
+
+.card.element-item {
+  height: 375px;
+  border-radius: .5rem;
+  align-items: center;
+  max-width: 450px;
+}
+
+.crud-container {
+  display: flex;
+  align-items: center;
+}
+
+.crud-container span {
+  font-size: 48px;
+}
+
+.crud-button {
+  border: none;
+  background: none;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+}
+
+.element-container img {
+  object-fit: cover;
+  height: 175px;
+
+}
+.bg-difusor {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-difusor .confirmation-container {
+  width: 320px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}

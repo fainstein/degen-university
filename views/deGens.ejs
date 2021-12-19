@@ -10,7 +10,7 @@
       <div class="card h-100 degen-card-wrapper" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="<%= (50*(i+1)) %>" data-aos-offset="0">
         <div>
           <div class="profile-card-bg bg-light"></div>
-          <img src="./images/<%- deGensArray[i].avatarImg %>" class="degens-img rounded-circle" alt="user-img">
+          <img src="../<%- deGensArray[i].avatarImg %>" class="degens-img rounded-circle" alt="user-img">
         </div>
         <div class="user-links-container">
           <h5 class="card-title"><%- deGensArray[i].alias %></h5>
@@ -21,11 +21,12 @@
             </div>
           </a>
           <a class="profile-link" href="https://<%-deGensArray[i].substack %>.substack.com/subscribe" target="_blank">
-            <div class="user-links">
+            <div class="user-links mb-2">
               <span class="iconify" data-icon="simple-icons:substack"></span>
               <span class="username"><%- deGensArray[i].substack %></span>
             </div>
           </a>
+          <p class="class-tags">Tags: <em><%- deGensArray[i].tags.slice(0, -1).join(', ') + ", " + deGensArray[i].tags.slice(-1)%></em></p>
         </div>
       </div>
     </div>

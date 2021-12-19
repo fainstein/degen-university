@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>DeGen Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/stylesAdmin.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">
+          <div class="brand-logo">
+            <span>DeGen Admin</span>
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/adminClasses">Classes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminDeGens">DeGens</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminShop">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+
+    <div class="container-fluid flex-wrapper-main">
+
+      <h1>DeGens</h1>
+
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4">
+        <div class="col">
+          <div class="card h-100 degen-card-wrapper">
+            <div class="crudWrapper no-min-height">
+              <div class="crud-container">
+                <button class="crud-button new-btn" type="button" name="button"></button>
+                <span class="iconify" data-icon="mdi:pencil" style="color: #50a25b;" data-width="48" data-height="48"></span>
+              </div>
+              <div>
+                <h3>Create element</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% for(let i=0; i < deGensArray.length ; i++) { %>
+        <div class="col">
+          <div class="card h-100 degen-card-wrapper">
+            <div class="crud-container">
+              <button class="crud-button delete-btn" type="button" name="idTarget" value="<%-deGensArray[i]._id-%>"></button>
+              <span class="iconify" data-icon="mdi:delete" style="color: #e06666;" data-width="48" data-height="48"> </span>
+            </div>
+            <div>
+              <div class="profile-card-bg bg-light"></div>
+              <img src="../<%- deGensArray[i].avatarImg %>" class="degens-img rounded-circle" alt="user-img">
+            </div>
+            <div class="user-links-container">
+              <h5 class="card-title"><%- deGensArray[i].alias %></h5>
+              <a class="profile-link" href="https://www.twitter.com/<%- deGensArray[i].twitter %>" target="_blank">
+                <div class="user-links">
+                  <span class="iconify" data-icon="mdi:twitter" data-width="20" data-height="20"></span>
+                  <span class="username"><%- deGensArray[i].twitter %></span>
+                </div>
+              </a>
+              <a class="profile-link" href="https://<%-deGensArray[i].substack %>.substack.com/subscribe" target="_blank">
+                <div class="user-links mb-2">
+                  <span class="iconify" data-icon="simple-icons:substack"></span>
+                  <span class="username"><%- deGensArray[i].substack %></span>
+                </div>
+              </a>
+              <p class="class-tags">Tags: <em><%- deGensArray[i].tags.slice(0, -1).join(', ') + ", " + deGensArray[i].tags.slice(-1)%></em></p>
+
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+
+
+    </div>
+
+    <div class="bg-difusor hidden new-element-container">
+      <div class="new-element-form card p-4">
+        <form action="/adminDeGens" method="post" enctype="multipart/form-data">
+          <h3>Create DeGen</h3>
+          <div class="mb-3">
+            <label for="deGenAlias" class="form-label">Alias</label>
+            <input type="text" class="form-control" id="deGenAlias" name="deGenAlias">
+          </div>
+          <div class="mb-3">
+            <label for="deGenTwitter" class="form-label">Twitter username</label>
+            <input type="text" class="form-control" id="deGenTwitter" name="deGenTwitter">
+          </div>
+          <div class="mb-3">
+            <label for="deGenSubstack" class="form-label">Substack username</label>
+            <input type="text" class="form-control" id="deGenSubstack" name="deGenSubstack">
+          </div>
+          <div class="mb-3">
+            <% for(let i=0; i < tagsArray.length ; i++) { %>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="<%-tagsArray[i].value%>" name="<%-tagsArray[i].value%>" value="<%-tagsArray[i].value%>">
+                <label class="form-check-label" for="<%-tagsArray[i].value%>"><%-tagsArray[i].content%></label>
+              </div>
+            <% } %>
+          </div>
+          <div class="mb-3">
+            <label for="userImg" class="form-label">Attach avatar image</label>
+            <input class="form-control" type="file" id="userImg" name="userImg">
+          </div>
+          <div class="btn-wrapper">
+            <button class="btn create-cancel-btn" type="button" name="button">Cancel</button>
+            <button class="btn btn-success confirm-btn" type="submit" name="idTarget">Create</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="bg-difusor hidden delete-element-container">
+      <div class="confirmation-container">
+        <h3>Delete element?</h3>
+        <div class="btn-wrapper">
+          <button class="btn cancel-btn" type="button" name="button">Cancel</button>
+          <form class="" action="/deleteDeGen" method="post">
+            <button class="btn btn-danger confirm-btn delete-confirm" type="submit" name="idTarget">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <script src="admin.js" charset="utf-8"></script>
+</body>
+
+</html>
