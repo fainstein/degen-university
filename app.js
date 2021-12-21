@@ -60,8 +60,8 @@ app.use('/images', express.static("images"));
 
 // MONGOOSE MONGODB CONNECT
 
-// mongoose.connect('mongodb+srv://foodmaster:PIGSd0ntfly@cj-cluster.dztz8.mongodb.net/CJDB', {
-mongoose.connect("mongodb://localhost:27017/DeGenDB", {
+mongoose.connect('mongodb+srv://degenmaster:Yw8GziDFPhLHErG@degenuniversity.lolji.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+// mongoose.connect("mongodb://localhost:27017/DeGenDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
