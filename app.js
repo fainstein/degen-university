@@ -44,7 +44,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(session({
-  secret: process.env.SECRET,
+  secret: "Let$g0t0th3M4LL#2021.",
   resave: false,
   saveUninitialized: false
 }));
