@@ -1,7 +1,7 @@
 let searchFilter = document.querySelector(".search-filter");
 let selectFilter = document.querySelector("select");
 
-let resultsNodeList = document.querySelectorAll(".cardSelector");
+let resultsNodeList = document.querySelectorAll(".deGenSelector");
 
 selectFilter.addEventListener("change", (event) => {
   for (let i = 0; i < resultsNodeList.length; i++) {
@@ -15,7 +15,7 @@ selectFilter.addEventListener("change", (event) => {
   }
 });
 
-let shopContentNodeList = document.querySelectorAll(".cardSelector");
+let shopContentNodeList = document.querySelectorAll(".deGenSelector");
 
 searchFilter.addEventListener("keyup", (event) => {
   for (let i = 0; i < resultsNodeList.length; i++) {

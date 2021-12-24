@@ -1,12 +1,27 @@
 <%- include('partials/header') %>
 <div class="container-fluid flex-wrapper-main">
 
-  <h1>Find our DeGens</h1>
-
-  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4">
+  <h1 class="classes-title">All our professors sorted for you</h1>
+  <p class="section-subtitle">Find them with the search function and the tags tool!</p>
+  <div class="classes-filters">
+    <input class="form-control search-filter" type="text" name="searchQuery" placeholder="Search">
+    <select class="form-select">
+      <option selected>Sort by...</option>
+      <% for(let i=0; i < filters.length ; i++) { %>
+      <option value="<%- filters[i].value %>"><%- filters[i].content %></option>
+      <% } %>
+    </select>
+  </div>
+  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4 mt-2">
 
     <% for(let i=0; i < deGensArray.length ; i++) { %>
-    <div class="col">
+      <% let classes = ""; %>
+      <% for (let j=0; j< filters.length ; j++) { %>
+        <% if (deGensArray[i].tags.includes(filters[j].content)) {%>
+          <% classes = classes + " " + filters[j].value; %>
+        <% } %>
+      <% } %>
+    <div class="col deGenSelector <%- classes %>">
       <div class="card h-100 degen-card-wrapper" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="<%= (50*(i+1)) %>" data-aos-offset="0">
         <div>
           <div class="profile-card-bg bg-light"></div>
@@ -36,5 +51,5 @@
 
 </div>
 
-
+<script src="deGensFilter.js" charset="utf-8"></script>
 <%- include('partials/footer') %>

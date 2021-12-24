@@ -239,7 +239,7 @@ app.get("/deGens", function(req, res) {
       console.log(err);
     } else {
       res.render("deGens", {
-        deGensArray: deGens
+        deGensArray: deGens, filters: filtersArray
       });
     }
   });
